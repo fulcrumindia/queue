@@ -61,7 +61,7 @@ function getAPIUrl(view){
 }
 
 function getAPIHost(){
-    var host = "http://localhost:3000/api/";
+    var host = "http://patientq.queuemobile.com:3000/api/";
     return host;
 }
 
