@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
+    <title>Elite Hospital Admin Template - Hospital admin dashboard web app kit</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
+
+    <!-- Menu CSS -->
+    <link href="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- color CSS -->
+    <link href="css/colors/megna.css" id="theme" rel="stylesheet">
+    <link href="plugins/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+    <link href="plugins/bower_components/switchery/dist/switchery.min.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="fix-sidebar">
+
+     <!-- Preloader -->
+    <div class="preloader">
+        <div class="cssload-speeding-wheel"></div>
+    </div>
+    <div id="wrapper">
+        <!-- Top Navigation -->
+        <nav id="topnav"></nav>
+
+        <!-- Left navbar-header -->
+        <div id="leftnav"></div>
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div id="maincontent"></div>
+            <!-- /.container-fluid -->
+            <footer id="bottomnav"></footer>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/tether.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <!-- jQuery peity -->
+    <script src="plugins/bower_components/peity/jquery.peity.min.js"></script>
+    <script src="plugins/bower_components/peity/jquery.peity.init.js"></script>
+    <!--Style Switcher -->
+    <script src="plugins/bower_components/switchery/dist/switchery.min.js"></script>
+    <!-- handlebars -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+    <script src="common.js"></script>
+
+    <script>
+    jQuery(document).ready(function() {
+        // Switchery
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        $('.js-switch').each(function() {
+            new Switchery($(this)[0], $(this).data());
+        });
+        // For select 2
+
+        var urlParams = new URLSearchParams(window.location.search);
+        var view = urlParams.get('view');
+
+        if(view==null || view=='null')
+            location.href='login.html';
+
+        getTemplateAjax('topnav.html','topnav');
+        getTemplateAjax('leftnav.html','leftnav');
+        getTemplateAjax('footer.html','bottomnav');
+
+        var _id = urlParams.get('_id');
+        var geturl = getAPIUrl(view);
+        if(_id!=null && _id!='null')
+            geturl += '/'+_id;
+
+        getAjaxData(geturl).done((data) => {
+            var context = data;
+            console.log(data);
+            getTemplateAjax(view+'.html','maincontent',context);
+        });
+        //$("#leftnav").load("leftnav.html"); 
+
+    });
+    </script>
+    <script src="plugins/bower_components/sweetalert/sweetalert.min.js"></script>
+    <script src="plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js"></script>
+    <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+</body>
+
+</html>

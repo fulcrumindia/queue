@@ -1,0 +1,131 @@
+<div class="container-fluid">
+    <div class="row bg-title">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <h4 class="page-title">ER Queue Maanager</h4>
+        </div>
+        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">ER Queue Maanager</li>
+            </ol>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /row -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-box">
+                <h3 class="box-title">New Patient Queue
+                    <a href="index.html?view=addqueue" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Add Queue</a>
+                </h3>
+                <div class="table-responsive">
+                    <table class="table color-bordered-table danger-bordered-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Color</th>
+                                <th width="30%">Queue Message</th>
+                                <th>Display Queue Message</th>
+                                <th>Assign Status</th>
+                                <th>Default</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each data}}
+                            <tr>
+                                <td>{{@index}}</td>
+                                <td>{{name}}</td>
+                                <td>{{color}}</td>
+                                <td>{{queuesms}}</td>
+                                <td>{{disablequeuesms}}</td>
+                                <td>
+                                    <select class="form-control">
+                                        <option>Resuscitation</option>
+                                        <option>Emergency</option>
+                                        <option>Urgency</option>
+                                        <option>Less Urgency</option>
+                                        <option>Non Urgency</option>
+                                    </select>
+                                </td>
+                                <td><input type="checkbox" class="js-switch" data-color="#01c0c8" data-size="small" /></td>
+                                <td><a href="index.html?view=addqueue&_id={{_id}}" class="btn btn-success btn-circle"><i class="fa fa-edit"></i> </a>&nbsp;
+                                    <a onclick="deleteRow('{{_id}}');" href="javascript:void(0)" class="btn btn-warning btn-circle model_img sa-warning"><i class="fa fa-trash"></i> </a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                           <!-- <tr>
+                                <td>1</td>
+                                <td>New Patient</td>
+                                <td>Green</td>
+                                <td>The Summit Pacific ER team appreciates your patience. Please come to the nurses station and
+                                    present your name registration #1023. Reply C to Cancel.</td>
+                                <td>No</td>
+                                <td>
+                                    <select class="form-control">
+                                                    <option>Resuscitation</option>
+                                                    <option>Emergency</option>
+                                                    <option>Urgency</option>
+                                                    <option>Less Urgency</option>
+                                                    <option>Non Urgency</option>
+                                                </select>
+                                </td>
+                                <td><input type="checkbox" class="js-switch" data-color="#01c0c8" data-size="small" /></td>
+                                <td><a href="add-queue.html" class="btn btn-success btn-circle"><i class="fa fa-edit"></i> </a>&nbsp;
+                                    <a href="javascript:void(0)" class="btn btn-warning btn-circle model_img sa-warning"><i class="fa fa-trash"></i> </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>New Patient</td>
+                                <td>Green</td>
+                                <td>The Summit Pacific ER team appreciates your patience. Please come to the nurses station and
+                                    present your name registration #1023. Reply C to Cancel.</td>
+                                <td>No</td>
+                                <td>
+                                    <select class="form-control">
+                                                    <option>Resuscitation</option>
+                                                    <option>Emergency</option>
+                                                    <option>Urgency</option>
+                                                    <option>Less Urgency</option>
+                                                    <option>Non Urgency</option>
+                                                </select>
+                                </td>
+                                <td><input type="checkbox" class="js-switch" data-color="#01c0c8" data-size="small" /></td>
+                                <td><a href="add-queue.html" class="btn btn-success btn-circle"><i class="fa fa-edit"></i> </a>&nbsp;
+                                    <a href="javascript:void(0)" class="btn btn-warning btn-circle model_img sa-warning"><i class="fa fa-trash"></i> </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>New Patient</td>
+                                <td>Green</td>
+                                <td>The Summit Pacific ER team appreciates your patience. Please come to the nurses station and
+                                    present your name registration #1023. Reply C to Cancel.</td>
+                                <td>No</td>
+                                <td>
+                                    <select class="form-control">
+                                                    <option>Resuscitation</option>
+                                                    <option>Emergency</option>
+                                                    <option>Urgency</option>
+                                                    <option>Less Urgency</option>
+                                                    <option>Non Urgency</option>
+                                                </select>
+                                </td>
+                                <td><input type="checkbox" class="js-switch" data-color="#01c0c8" data-size="small" /></td>
+                                <td><a href="add-queue.html" class="btn btn-success btn-circle"><i class="fa fa-edit"></i> </a>&nbsp;
+                                    <a href="javascript:void(0)" class="btn btn-warning btn-circle model_img sa-warning"><i class="fa fa-trash"></i> </a>
+                                </td>
+                            </tr>
+-->
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,87 @@
+<div class="container-fluid">
+    <div class="row bg-title">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <h4 class="page-title">Add Queue</h4>
+        </div>
+        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Add Queue</li>
+            </ol>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="white-box">
+                <h3 class="box-title">Add Queue</h3>
+                <form class="form-material form-horizontal" action="index.html?view=managequeue" method="post" onsubmit="return submitForm('{{data._id}}');">
+                    <input type="hidden" name="userid" value="7777">
+                    <div class="form-group">
+                        <label class="col-md-12" for="name">Name</span>
+                                    </label>
+                        <div class="col-md-12">
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter Your Name" value="{{data.name}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12" for="description">Description</span>
+                                    </label>
+                        <div class="col-md-12">
+                            <textarea type="text" id="description" name="description" class="form-control" placeholder="Enter Your Description" rows="3">{{data.description}}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12" for="queuesms">Queue Message</span>
+                                    </label>
+                        <div class="col-md-12">
+                            <textarea type="text" id="queuesms" name="queuesms" class="form-control" placeholder="Enter Your Queue Message" rows="3">{{data.queuesms}}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12" for="visitsms">Visit Message</span></label>
+                        <div class="col-md-12">
+                            <textarea type="text" id="visitsms" name="visitsms" class="form-control" placeholder="Enter Your Visit Message" rows="3">{{data.visitsms}}</textarea>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label class="col-md-12" for="example-name">Queue Abbreviation</span>
+                        </label>
+                        <div class="col-md-12">
+                            <input type="text" id="example-abbereviation" name="example-abbereviation" class="form-control" placeholder="Enter Your Queue Abbreviation">
+                        </div>
+                    </div> -->
+                    <div class="form-group">
+                        <label class="col-md-12">Queue Wait Time</label>
+                        <div class="input-group clockpicker col-md-12 " data-placement="bottom" data-align="top" data-autoclose="true">
+                            <input name="waitime" type="text" class="form-control" value="{{data.waitime}}">
+                            <span class="input-group-addon"> <span class="glyphicon glyphicon-time"></span> </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <label class="col-md-12">Queue Color</label>
+                        <div class="col-md-12 ">
+                            <input type="text" name="color" class="complex-colorpicker form-control" value="{{data.color}}" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-12">Disable Queue Message {{data.disablequeuesms}}</label>
+                        <div class="col-sm-12">
+                            <select class="form-control" name="disablequeuesms">
+                                <option value="true" {{#if data.disablequeuesms}}selected{{/if}}>Yes</option>
+                                <option value="false" {{#unless data.disablequeuesms}}selected{{/unless}}>No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group error" id="errorMsg"></div>
+                    <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
+                    <button type="button" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
